@@ -27,7 +27,7 @@ def read_hosts(pathnames, default_user=None, default_port=None):
     for line in lines:
         # Skip blank lines or lines starting with #
         line = line.strip(string.whitespace + '#')
-        if not line:
+        if not line or line[0] == '#':
             continue
         host, port, user = parse_line(line, default_user, default_port)
         if host:
